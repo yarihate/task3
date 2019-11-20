@@ -40,7 +40,7 @@ public class ListOfStudentsUtils {
         System.out.println(listOfStudentsUtils.addFirstStudent(new Student("Solovev,Igor,Nikolaevich,m,06.08.1991,2,a4")));
     }
 
-    //1 вывод строки под определенным номером в файле (метод принимает на вход номер строки)
+    //1 
     public String getThisLine(int number) {
         Student student;
         try {
@@ -51,24 +51,24 @@ public class ListOfStudentsUtils {
         return student == null ? "There is no such line" : student.getLine();
     }
 
-    //2 вывод всех студентов (уникальных) в том порядке, в котором они появлялись в файле
+    //2 
     public Set<Student> getUniqueStudents() {
         return new LinkedHashSet<>(students);
     }
 
-    //3 вывод всех студентов (уникальных), отсортированных по ФИО+дата рожденя
+    //3 
     public Set<Student> getUniqueSortedStudents() {
         return new TreeSet<>(students);
     }
 
-    //4 вывод всех студентов (уникальных) определенного курса (метод принимает номер курса)
+    //4 
     public Set<Student> getUniqueStudentsOfThisYear(int year) {
         Set<Student> studentSet = new HashSet<>(students);
         studentSet.removeIf(a -> a.getYear() != year);
         return studentSet;
     }
 
-    //5 вывод всех студентов, слушающих определенный предмет на любом курсе (метод принимает название предмета)
+    //5 
     public List<Student> getStudentsOfThisCourse(String course) {
         if (course == null) {
             throw new NullPointerException("Incorrect argument");
@@ -78,7 +78,7 @@ public class ListOfStudentsUtils {
         return studentList;
     }
 
-    //6 придумать в этом задании наглядное применение LinkedList и сделать метод
+    //6 
     public List<Student> addFirstStudent(Student newStudent) {
         if(newStudent == null){
             throw new NullPointerException("Incorrect argument");
