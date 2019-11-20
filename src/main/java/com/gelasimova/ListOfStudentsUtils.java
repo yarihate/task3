@@ -6,10 +6,18 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class ListOfStudentsUtils {
-    List<Student> students;
+    private List<Student> students;
+
+    public List<Student> getStudents(){
+        return students;
+    }
+
+    public void setStudents(List <Student> studentList){
+        students = studentList;
+    }
 
     //load the file
-    private void setStudents(String fileName) {
+    private void initStudentsFromFile(String fileName) {
         students = new ArrayList<>();
         File file = new File(fileName);
         try (InputStream inputStream = new FileInputStream(file);
@@ -25,7 +33,7 @@ public class ListOfStudentsUtils {
 
     public static void main(String[] args) {
         ListOfStudentsUtils listOfStudentsUtils = new ListOfStudentsUtils();
-        listOfStudentsUtils.setStudents("C:\\Users\\Gelasimova\\Desktop\\test3.txt");
+        listOfStudentsUtils.initStudentsFromFile("C:\\Users\\Gelasimova\\Desktop\\testFile.txt");
         System.out.println("First method");
         System.out.println(listOfStudentsUtils.getThisLine(3));
         System.out.println("Second method");
@@ -100,19 +108,19 @@ class Student implements Comparable {
     private String course;
     private String fullName;
 
-    int getYear() {
+    public int getYear() {
         return year;
     }
 
-    String getCourse() {
+    public String getCourse() {
         return course;
     }
 
-    String getLine() {
+    public String getLine() {
         return lastName + " " + firstName + " " + middleName + " " + sex + " " + birthday.format(formatter) + " " + year + " " + course;
     }
 
-    Student(String inputString) {
+    public Student(String inputString) {
         String[] data = inputString.split(",");
         lastName = data[0];
         firstName = data[1];

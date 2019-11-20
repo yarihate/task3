@@ -10,14 +10,14 @@ public class ListOfStudentsUtilsTest {
     private ListOfStudentsUtils listOfStudentsUtils;
 
     @Before
-    public void setUp() {
+    public void initStudents() {
         listOfStudentsUtils = new ListOfStudentsUtils();
-        listOfStudentsUtils.students = new ArrayList<>();
-        listOfStudentsUtils.students.add(new Student("Gelasimova,Lera,Andreevna,f,06.11.1992,5,r1"));
-        listOfStudentsUtils.students.add(new Student("Ivanov,Artem,Ivanovich,m,05.12.1990,4,e2"));
-        listOfStudentsUtils.students.add(new Student("Ivanov,Artem,Ivanovich,m,05.12.1990,4,m1"));
-        listOfStudentsUtils.students.add(new Student("Solovev,Oleg,Glebovich,m,07.06.1989,5,e2"));
-        listOfStudentsUtils.students.add(new Student("Solovev,Oleg,Glebovich,m,05.06.1989,5,a4"));
+        listOfStudentsUtils.setStudents(new ArrayList<>());
+        listOfStudentsUtils.getStudents().add(new Student("Gelasimova,Lera,Andreevna,f,06.11.1992,5,r1"));
+        listOfStudentsUtils.getStudents().add(new Student("Ivanov,Artem,Ivanovich,m,05.12.1990,4,e2"));
+        listOfStudentsUtils.getStudents().add(new Student("Ivanov,Artem,Ivanovich,m,05.12.1990,4,m1"));
+        listOfStudentsUtils.getStudents().add(new Student("Solovev,Oleg,Glebovich,m,07.06.1989,5,e2"));
+        listOfStudentsUtils.getStudents().add(new Student("Solovev,Oleg,Glebovich,m,05.06.1989,5,a4"));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class ListOfStudentsUtilsTest {
 
     @Test
     public void correctArgumentM1() {
-        Assert.assertEquals(listOfStudentsUtils.students.get(2).getLine(), listOfStudentsUtils.getThisLine(3));
+        Assert.assertEquals(listOfStudentsUtils.getStudents().get(2).getLine(), listOfStudentsUtils.getThisLine(3));
     }
 
     @Test
@@ -54,10 +54,10 @@ public class ListOfStudentsUtilsTest {
     public void isTheOrderCorrectM2() {
         ArrayList<Student> actual = new ArrayList<>(listOfStudentsUtils.getUniqueStudents());
         ArrayList<Student> expected = new ArrayList<>();
-        expected.add(listOfStudentsUtils.students.get(0));
-        expected.add(listOfStudentsUtils.students.get(1));
-        expected.add(listOfStudentsUtils.students.get(3));
-        expected.add(listOfStudentsUtils.students.get(4));
+        expected.add(listOfStudentsUtils.getStudents().get(0));
+        expected.add(listOfStudentsUtils.getStudents().get(1));
+        expected.add(listOfStudentsUtils.getStudents().get(3));
+        expected.add(listOfStudentsUtils.getStudents().get(4));
         Assert.assertEquals(expected, actual);
     }
 
@@ -65,20 +65,20 @@ public class ListOfStudentsUtilsTest {
     public void areTheElementsUniqueM3() {
         ArrayList<Student> actual = new ArrayList<>(listOfStudentsUtils.getUniqueSortedStudents());
         Assert.assertEquals(4, actual.size());
-        Assert.assertTrue(actual.contains(listOfStudentsUtils.students.get(0)));
-        Assert.assertTrue(actual.contains(listOfStudentsUtils.students.get(1)));
-        Assert.assertTrue(actual.contains(listOfStudentsUtils.students.get(3)));
-        Assert.assertTrue(actual.contains(listOfStudentsUtils.students.get(4)));
+        Assert.assertTrue(actual.contains(listOfStudentsUtils.getStudents().get(0)));
+        Assert.assertTrue(actual.contains(listOfStudentsUtils.getStudents().get(1)));
+        Assert.assertTrue(actual.contains(listOfStudentsUtils.getStudents().get(3)));
+        Assert.assertTrue(actual.contains(listOfStudentsUtils.getStudents().get(4)));
     }
 
     @Test
     public void isTheOrderCorrectM3() {
         ArrayList<Student> actual = new ArrayList<>(listOfStudentsUtils.getUniqueSortedStudents());
         ArrayList<Student> expected = new ArrayList<>();
-        expected.add(listOfStudentsUtils.students.get(0));
-        expected.add(listOfStudentsUtils.students.get(1));
-        expected.add(listOfStudentsUtils.students.get(4));
-        expected.add(listOfStudentsUtils.students.get(3));
+        expected.add(listOfStudentsUtils.getStudents().get(0));
+        expected.add(listOfStudentsUtils.getStudents().get(1));
+        expected.add(listOfStudentsUtils.getStudents().get(4));
+        expected.add(listOfStudentsUtils.getStudents().get(3));
         Assert.assertEquals(expected, actual);
 
     }
@@ -87,7 +87,7 @@ public class ListOfStudentsUtilsTest {
     public void areTheElementsUniqueM4() {
         ArrayList<Student> actual = new ArrayList<>(listOfStudentsUtils.getUniqueStudentsOfThisYear(4));
         Assert.assertEquals(1, actual.size());
-        Assert.assertTrue(actual.contains(listOfStudentsUtils.students.get(1)));
+        Assert.assertTrue(actual.contains(listOfStudentsUtils.getStudents().get(1)));
     }
 
     @Test
