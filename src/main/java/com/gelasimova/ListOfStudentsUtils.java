@@ -11,7 +11,7 @@ public class ListOfStudentsUtils {
     public List<Student> getStudents(){
         return students;
     }
-
+    //created for tests
     public void setStudents(List <Student> studentList){
         students = studentList;
     }
