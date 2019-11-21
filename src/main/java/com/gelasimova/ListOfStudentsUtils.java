@@ -33,7 +33,7 @@ public class ListOfStudentsUtils {
 
     public static void main(String[] args) {
         ListOfStudentsUtils listOfStudentsUtils = new ListOfStudentsUtils();
-        listOfStudentsUtils.initStudentsFromFile("C:\\Users\\Gelasimova\\Desktop\\testFile.txt");
+        listOfStudentsUtils.initStudentsFromFile("C:\\Users\\Gelasimova\\Desktop\\task3project\\testFile");
         System.out.println("First method");
         System.out.println(listOfStudentsUtils.getThisLine(3));
         System.out.println("Second method");
